@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ahmed Seleem — Full‑Stack Web Developer</title>
+    <meta
+      name="description"
+      content="Ultra‑modern, elegant, animated portfolio for a full‑stack web developer. Responsive, accessible, and packed with delightful animations."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="color-scheme" content="light dark" />
+  </head>
+  <body>
+    <!-- Canvas Particles Background -->
+    <canvas
+      id="bg-canvas"
+      aria-hidden="true"
+      style="
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        block-size: 100vh;
+        inline-size: 100vw;
+      "
+    ></canvas>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <!-- Brand (logo only, no text) -->
+    <a href="#home" class="brand" aria-label="Home">
+      <!-- Inline SVG logo: hexagon + </> -->
+      <svg viewBox="0 0 120 120" class="logo" role="img" aria-hidden="false" focusable="false">
+        <defs>
+          <linearGradient id="logoGrad" x1="0%" x2="100%">
+            <stop offset="0%" stop-color="var(--logo-accent-1)" />
+            <stop offset="100%" stop-color="var(--logo-accent-2)" />
+          </linearGradient>
+          <filter id="logoShadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="rgba(0,0,0,0.18)" />
+          </filter>
+        </defs>
+
+        <!-- Hexagon -->
+        <polygon
+          points="60,6 106,32 106,88 60,114 14,88 14,32"
+          fill="none"
+          stroke="url(#logoGrad)"
+          stroke-width="6"
+          stroke-linejoin="round"
+          filter="url(#logoShadow)"
+          class="logo-hex"
+        />
+
+        <!-- Left chevron '<' -->
+        <polyline
+          points="46,44 36,60 46,76"
+          fill="none"
+          stroke="url(#logoGrad)"
+          stroke-width="6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="logo-chevron"
+        />
+
+        <!-- Right chevron '>' -->
+        <polyline
+          points="74,44 84,60 74,76"
+          fill="none"
+          stroke="url(#logoGrad)"
+          stroke-width="6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="logo-chevron"
+        />
+      </svg>
+    </a>
+        <nav aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Toggle theme"
+          title="Toggle theme"
+        >
+          <span class="icon sun">☀️</span>
+          <span class="icon moon">🌙</span>
+        </button>
+      </div>
+    </header>
+    <!-- MOBILE HEADER -->
+    <header class="mobile-header">
+      <a href="#home" class="brand" aria-label="Home">
+      <!-- Inline SVG logo: hexagon + </> -->
+      <svg viewBox="0 0 120 120" class="logo" role="img" aria-hidden="false" focusable="false">
+        <defs>
+          <linearGradient id="logoGrad" x1="0%" x2="100%">
+            <stop offset="0%" stop-color="var(--logo-accent-1)" />
+            <stop offset="100%" stop-color="var(--logo-accent-2)" />
+          </linearGradient>
+          <filter id="logoShadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="rgba(0,0,0,0.18)" />
+          </filter>
+        </defs>
+
+        <!-- Hexagon -->
+        <polygon
+          points="60,6 106,32 106,88 60,114 14,88 14,32"
+          fill="none"
+          stroke="url(#logoGrad)"
+          stroke-width="6"
+          stroke-linejoin="round"
+          filter="url(#logoShadow)"
+          class="logo-hex"
+        />
+
+        <!-- Left chevron '<' -->
+        <polyline
+          points="46,44 36,60 46,76"
+          fill="none"
+          stroke="url(#logoGrad)"
+          stroke-width="6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="logo-chevron"
+        />
+
+        <!-- Right chevron '>' -->
+        <polyline
+          points="74,44 84,60 74,76"
+          fill="none"
+          stroke="url(#logoGrad)"
+          stroke-width="6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="logo-chevron"
+        />
+      </svg>
+    </a>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <nav class="mobile-menu" id="mobileMenu">
+      <a href="#hero">Home</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <main id="home">
+      <!-- HERO -->
+      <section class="hero section">
+        <div class="blob one"></div>
+        <div class="blob two"></div>
+
+        <div class="container hero-inner reveal" data-anim>
+          <div class="badge-row">
+            <span class="chip">Full‑Stack Developer</span>
+            <span class="chip">UI Engineer</span>
+            <span class="chip">Performance‑first</span>
+          </div>
+          <h1 class="title">
+            Crafting delightful web experiences with
+            <span class="gradient-text">clean code</span> & immersive
+            <span class="gradient-text">animations</span>.
+          </h1>
+          <p class="lead">
+            I design, build, and optimize modern web apps — from pixel‑perfect
+            front‑ends to scalable back‑ends. Minimal, fast, and accessible by
+            default.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#projects">Explore Projects</a>
+            <a class="btn" href="#contact">Hire Me</a>
+          </div>
+          <div
+            class="grid"
+            style="
+              grid-template-columns: repeat(6, 1fr);
+              gap: 10px;
+              margin-top: 12px;
+              place-items: center;
+            "
+          >
+            <span class="chip glow">TypeScript</span>
+            <span class="chip">React</span>
+            <span class="chip">Next.js</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">Docker</span>
+          </div>
+        </div>
+        <div class="scroll-indicator" aria-hidden="true">
+          <span class="mouse"><span class="wheel"></span></span> Scroll
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section">
+        <div class="container about reveal" data-anim>
+          <div class="panel card shine">
+            <span class="subtitle">About</span>
+            <h2
+              class="title"
+              style="font-size: clamp(1.6rem, 5vw, 2.2rem); margin-top: 8px"
+            >
+              Hi, I’m Ahmed — I turn ideas into polished products.
+            </h2>
+            <p style="margin-top: 12px">
+              I focus on building web applications that are fast, accessible,
+              and easy to use. I enjoy working across the stack, from designing
+              smooth user interfaces to writing clean, maintainable back-end
+              code.
+            </p>
+            <ul
+              class="grid"
+              style="margin-top: 16px; grid-template-columns: repeat(2, 1fr)"
+            >
+              <li>✅ End‑to‑end product delivery</li>
+              <li>⚡ Lighthouse‑friendly performance</li>
+              <li>🔐 Auth, RBAC & security best practices</li>
+              <li>🧪 Testing: Vitest, Playwright</li>
+            </ul>
+            <div
+              class="grid"
+              style="margin-top: 16px; grid-template-columns: repeat(3, 1fr)"
+            >
+              <a class="btn" href="#contact">Available for work</a>
+              <a class="btn" href="#projects">See recent work</a>
+              <a class="btn" href="#skills">My toolbox</a>
+            </div>
+          </div>
+          <div class="avatar card" aria-label="Portrait placeholder">
+            <img class="my-photo"
+              src="./FB_IMG_1731688608148.jpg"
+              alt="My Photo"
+              width="400"
+              height="400"
+              style="border-radius: 50%; object-fit: cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="section">
+        <div class="container">
+          <div class="reveal" data-anim>
+            <span class="subtitle">Skills</span>
+            <h2
+              class="title"
+              style="font-size: clamp(1.6rem, 5vw, 2.2rem); margin-top: 8px"
+            >
+              A well‑balanced toolbox
+            </h2>
+            <p class="lead" style="margin-top: 8px">
+              I ship reliable, fast apps using modern stacks and strong
+              fundamentals.
+            </p>
+          </div>
+          <div class="skills" style="margin-top: 22px">
+            <div class="skill card panel reveal" data-anim>
+              <div
+                class="grid"
+                style="grid-template-columns: 1fr auto; align-items: center"
+              >
+                <strong>TypeScript</strong>
+                <span class="chip">Expert</span>
+              </div>
+              <div class="meter" style="margin-top: 10px">
+                <span data-meter="92"></span>
+              </div>
+            </div>
+            <div class="skill card panel reveal" data-anim>
+              <div
+                class="grid"
+                style="grid-template-columns: 1fr auto; align-items: center"
+              >
+                <strong>React / Next.js</strong>
+                <span class="chip">Advanced</span>
+              </div>
+              <div class="meter" style="margin-top: 10px">
+                <span data-meter="90"></span>
+              </div>
+            </div>
+            <div class="skill card panel reveal" data-anim>
+              <div
+                class="grid"
+                style="grid-template-columns: 1fr auto; align-items: center"
+              >
+                <strong>Node.js / Express</strong>
+                <span class="chip">Advanced</span>
+              </div>
+              <div class="meter" style="margin-top: 10px">
+                <span data-meter="88"></span>
+              </div>
+            </div>
+            <div class="skill card panel reveal" data-anim>
+              <div
+                class="grid"
+                style="grid-template-columns: 1fr auto; align-items: center"
+              >
+                <strong>PostgreSQL / Prisma</strong>
+                <span class="chip">Advanced</span>
+              </div>
+              <div class="meter" style="margin-top: 10px">
+                <span data-meter="84"></span>
+              </div>
+            </div>
+            <div class="skill card panel reveal" data-anim>
+              <div
+                class="grid"
+                style="grid-template-columns: 1fr auto; align-items: center"
+              >
+                <strong>Testing (Vitest, Playwright)</strong>
+                <span class="chip">Strong</span>
+              </div>
+              <div class="meter" style="margin-top: 10px">
+                <span data-meter="80"></span>
+              </div>
+            </div>
+            <div class="skill card panel reveal" data-anim>
+              <div
+                class="grid"
+                style="grid-template-columns: 1fr auto; align-items: center"
+              >
+                <strong>CI/CD (Docker, GitHub Actions)</strong>
+                <span class="chip">Strong</span>
+              </div>
+              <div class="meter" style="margin-top: 10px">
+                <span data-meter="78"></span>
+              </div>
+            </div>
+            <div class="skill card panel reveal" data-anim>
+              <div
+                class="grid"
+                style="grid-template-columns: 1fr auto; align-items: center"
+              >
+                <strong>GraphQL / tRPC</strong>
+                <span class="chip">Strong</span>
+              </div>
+              <div class="meter" style="margin-top: 10px">
+                <span data-meter="88"></span>
+              </div>
+
+              
+          </div>
+            <div class="skill card panel reveal" data-anim>
+              <div
+                class="grid"
+                style="grid-template-columns: 1fr auto; align-items: center"
+              >
+                <strong>Tailwind CSS</strong>
+                <span class="chip">Advanced</span>
+              </div>
+              <div class="meter" style="margin-top: 10px">
+                <span data-meter="88"></span>
+              </div>
+
+              
+          </div>
+          
+          
+        </div>
+      </section>
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="container">
+    <div class="reveal" data-anim>
+      <span class="subtitle">Projects</span>
+      <h2 class="title" style="font-size: clamp(1.6rem, 5vw, 2.2rem); margin-top: 8px">
+        Selected work
+      </h2>
+      <p class="lead" style="margin-top: 8px">
+        A snapshot of products I've built — from dashboards to real‑time apps.
+      </p>
+    </div>
+
+    <div class="projects" style="margin-top: 22px">
+      <!-- Repeated Project Card (copy of the last one) -->
+      <article class="project card shine panel reveal tilt" data-anim>
+        <div class="cover" role="img" aria-label="Analytics dashboard">
+          <img
+            src="./imgProjects/food/download.png"
+            alt="Decorative graphic"
+            width="800"
+            height="500"
+            style="max-width: 100%; height: auto"
+          />
+        </div>
+        <div class="overlay"></div>
+        <div style="padding: 16px; position: relative; z-index: 1">
+          <h3>Tomato — Food Ordering </h3>
+          <p style="color: var(--muted)">
+            Browse restaurants and menus with a clean, responsive design built in Next.js. Optimized for mobile and desktop, front-end only.
+          </p>
+          <div
+            class="grid"
+            style="
+              grid-template-columns: auto auto 1fr;
+              align-items: center;
+              gap: 0.5rem;
+              margin-top: 10px;
+            "
+          >
+            <span class="chip">Next.js</span>
+            <span class="chip">tRPC</span>
+            <a class="btn" href="https://tomato-v1.vercel.app/" target="_blank">Request demo</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project card shine panel reveal tilt" data-anim>
+        <div class="cover" role="img" aria-label="Analytics dashboard">
+          <img
+            src="./imgProjects/university-assignments/Screenshot 2025-09-10 094725.png"
+            alt="Decorative graphic"
+            width="800"
+            height="500"
+            style="max-width: 120%; height: auto"
+          />
+        </div>
+        <div class="overlay"></div>
+        <div style="padding: 16px; position: relative; z-index: 1">
+          <h3>University Assignments System</h3>
+          <p style="color: var(--muted)">
+            
+            Manage submissions and grading with a powerful React dashboard and Telegram bot. Built with .NET and SQL Server, optimized for students and admins. 
+          </p>
+          <div
+            class="grid"
+            style="
+              grid-template-columns: auto auto 1fr;
+              align-items: center;
+              gap: 0.5rem;
+              margin-top: 10px;
+            "
+          >
+            <span class="chip">.Net</span>
+            <span class="chip">tRPC</span>
+            <a class="btn" href="https://university-assignments-9m27.vercel.app/" target="_blank">Request demo</a>
+          </div>
+        </div>
+      </article>
+
+     
+
+      <article class="project card shine panel reveal tilt" data-anim>
+        <div class="cover" role="img" aria-label="Analytics dashboard">
+          <img
+            src="./imgProjects/multi-step/preview.jpg"
+            alt="Decorative graphic"
+            width="800"
+            height="500"
+            style="max-width: 100%; height: auto"
+          />
+        </div>
+        <div class="overlay"></div>
+        <div style="padding: 16px; position: relative; z-index: 1">
+          <h3>Multi-Step Form</h3>
+          <p style="color: var(--muted)">
+            
+Streamline user onboarding with a clean, responsive multi-step form. Built in React with validation, progress tracking, and smooth animations for better UX.
+          </p>
+          <div
+            class="grid"
+            style="
+              grid-template-columns: auto auto 1fr;
+              align-items: center;
+              gap: 0.5rem;
+              margin-top: 10px;
+            "
+          >
+            <span class="chip">Next.js</span>
+            <span class="chip">tRPC</span>
+            <a class="btn" href="https://ahmed12g4.github.io/Multi-step/" target="_blank">Request demo</a>
+          </div>
+        </div>
+      </article>
+
+       <article class="project card shine panel reveal tilt" data-anim>
+        <div class="cover" role="img" aria-label="Analytics dashboard">
+          <img
+            src="./imgProjects/edubridge/download (1).png"
+            alt="Decorative graphic"
+            width="800"
+            height="500"
+            style="max-width: 100%; height: auto"
+          />
+        </div>
+        <div class="overlay"></div>
+        <div style="padding: 16px; position: relative; z-index: 1">
+          <h3>EduBridge — E-Learning </h3>
+          <p style="color: var(--muted)">
+            
+Discover courses and manage progress with a clean, responsive interface. Built in Next.js, optimized for mobile and desktop with interactive learning tools.
+          </p>
+          <div
+            class="grid"
+            style="
+              grid-template-columns: auto auto 1fr;
+              align-items: center;
+              gap: 0.5rem;
+              margin-top: 10px;
+            "
+          >
+            <span class="chip">Next.js</span>
+            <span class="chip">tRPC</span>
+            <a class="btn" href="https://edubridge-edu-v1.vercel.app/" target="_blank">Request demo</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project card shine panel reveal tilt" data-anim>
+        <div class="cover" role="img" aria-label="Analytics dashboard">
+          <img
+            src="./imgProjects/To-do/Screenshot 2025-08-04 202101.PNG"
+            alt="Decorative graphic"
+            width="800"
+            height="500"
+            style="max-width: 100%; height: auto"
+          />
+        </div>
+        <div class="overlay"></div>
+        <div style="padding: 16px; position: relative; z-index: 1">
+          <h3>To-Do List — Task Manager</h3>
+          <p style="color: var(--muted)">
+            
+Organize tasks and deadlines with a simple, responsive interface. Built in React, optimized for mobile and desktop with real-time updates
+          </p>
+          <div
+            class="grid"
+            style="
+              grid-template-columns: auto auto 1fr;
+              align-items: center;
+              gap: 0.5rem;
+              margin-top: 10px;
+            "
+          >
+            <span class="chip">Next.js</span>
+            <span class="chip">tRPC</span>
+            <a class="btn" href="https://ahmed12g4.github.io/To---Do-list/" target="_blank">Request demo</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project card shine panel reveal tilt" data-anim>
+        <div class="cover" role="img" aria-label="Analytics dashboard">
+          <img
+            src="./imgProjects/weather-app/Screenshot 2025-08-04 201510.PNG"
+            alt="Decorative graphic"
+            width="900"
+            height="600"
+            style="max-width: 130%; height: auto"
+          />
+        </div>
+        <div class="overlay"></div>
+        <div style="padding: 16px; position: relative; z-index: 1">
+          <h3>Weather App — Real-time </h3>
+          <p style="color: var(--muted)">
+            
+Check current conditions and 7-day forecasts with a clean, responsive design. Built in React, optimized for mobile and desktop with API data.
+          </p>
+          <div
+            class="grid"
+            style="
+              grid-template-columns: auto auto 1fr;
+              align-items: center;
+              gap: 0.5rem;
+              margin-top: 10px;
+            "
+          >
+            <span class="chip">Next.js</span>
+            <span class="chip">tRPC</span>
+            <a class="btn" href="https://ahmed12g4.github.io/Coming-Soon-challenge/" target="_blank">Request demo</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" class="section">
+        <div class="container">
+          <div class="reveal" data-anim>
+            <span class="subtitle">Experience</span>
+            <h2
+              class="title"
+              style="font-size: clamp(1.6rem, 5vw, 2.2rem); margin-top: 8px"
+            >
+              Where I've contributed
+            </h2>
+          </div>
+          <div
+            class="grid"
+            style="
+              margin-top: 20px;
+              grid-template-columns: 1.1fr 0.9fr;
+              align-items: start;
+              gap: var(--grid-gap);
+            "
+          >
+            <div class="card panel reveal" data-anim>
+              <div class="timeline">
+                <div class="time-item">
+                  <h3>Lead Front‑End Engineer · NovaTech</h3>
+                  <p class="chip" style="margin: 0.4rem 0">2022 — Present</p>
+                  <p>
+                    Worked on improving UI performance and maintaining a reusable component system.
+                  </p>
+                </div>
+                <div class="time-item">
+                  <h3>Full‑Stack Developer · Orbit Labs</h3>
+                  <p class="chip" style="margin: 0.4rem 0">2023 — Present</p>
+                  <p>
+                    Built micro‑services with robust CI/CD and observability.
+                    Paginated APIs that scale.
+                  </p>
+                </div>
+                <div class="time-item">
+                  <h3>Front‑End Developer · Freelance</h3>
+                  <p class="chip" style="margin: 0.4rem 0">2022 — Present</p>
+                  <p>
+                    Shipped dozens of websites and SPAs for startups and
+                    agencies worldwide.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid" style="gap: var(--grid-gap)">
+              <div class="stats reveal" data-anim>
+                <div class="stat card">
+                  <div class="num" data-counter="120">0</div>
+                  <div class="subtitle" style="margin-top: 6px">
+                    Projects delivered
+                  </div>
+                </div>
+                <div class="stat card">
+                  <div class="num" data-counter="98">0</div>
+                  <div class="subtitle" style="margin-top: 6px">
+                    Performance score (avg)
+                  </div>
+                </div>
+                <div class="stat card">
+                  <div class="num" data-counter="24">0</div>
+                  <div class="subtitle" style="margin-top: 6px">
+                    Happy clients
+                  </div>
+                </div>
+                <div class="stat card">
+                  <div class="num" data-counter="3">0</div>
+                  <div class="subtitle" style="margin-top: 6px">
+                    Years experience
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel card reveal" data-anim>
+                <h3 style="margin-bottom: 8px">Services</h3>
+                <ul class="grid" style="grid-template-columns: repeat(2, 1fr)">
+                  <li>Design systems</li>
+                  <li>SPA / SSR apps</li>
+                  <li>API design</li>
+                  <li>Performance audits</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section id="testimonials" class="section">
+        <div class="container">
+          <div class="reveal" data-anim>
+            <span class="subtitle">Testimonials</span>
+            <h2
+              class="title"
+              style="font-size: clamp(1.6rem, 5vw, 2.2rem); margin-top: 8px"
+            >
+              Nice things clients say
+            </h2>
+          </div>
+
+          <div
+            class="slider card panel reveal"
+            data-anim
+            style="margin-top: 16px"
+          >
+            <div class="slides" id="slides">
+              <article class="slide">
+                <p class="lead">
+                  “Ahmed transformed our dashboard into a fast, elegant
+                  experience. Conversion went up 18%.”
+                </p>
+                <p class="chip-1" style="margin-top: 8px">
+                  — Lena · Product Lead @ NovaTech
+                </p>
+              </article>
+              <article class="slide">
+                <p class="lead">
+                  “Top‑notch engineering and design sense. Clean codebase and
+                  great documentation.”
+                </p>
+                <p class="chip-1"  style="margin-top: 8px">
+                  — Omar · CTO @ Orbit Labs
+                </p>
+              </article>
+              <article class="slide">
+                <p class="lead">
+                  “Great communication and rapid iterations. We shipped ahead of
+                  schedule.”
+                </p>
+                <p class="chip-1" style="margin-top: 8px">
+                  — Sara · Founder @ Bloom
+                </p>
+              </article>
+            </div>
+            <button class="slider-btn prev" aria-label="Previous" id="prev">
+              ◀
+            </button>
+            <button class="slider-btn next" aria-label="Next" id="next">
+              ▶
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="reveal" data-anim>
+            <span class="subtitle">Contact</span>
+            <h2
+              class="title"
+              style="font-size: clamp(1.6rem, 5vw, 2.2rem); margin-top: 8px"
+            >
+              Let’s build something great
+            </h2>
+          </div>
+
+          <div
+            class="grid"
+            style="
+              margin-top: 20px;
+              grid-template-columns: 1fr 0.9fr;
+              gap: var(--grid-gap);
+            "
+          >
+            <form
+              class="card panel reveal"
+              data-anim
+              onsubmit="event.preventDefault(); alert('Thanks! I will get back to you shortly.'); this.reset();"
+            >
+              <div
+                class="grid"
+                style="grid-template-columns: 1fr 1fr; gap: 12px"
+              >
+                <div>
+                  <label for="name" class="subtitle">Name</label>
+                  <input
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="Your name"
+                    style="
+                      margin-top: 6px;
+                      width: 100%;
+                      padding: 0.8rem 1rem;
+                      border-radius: 12px;
+                      border: 1px solid
+                        color-mix(in oklab, var(--text) 12%, transparent);
+                      background: color-mix(
+                        in oklab,
+                        var(--panel) 90%,
+                        transparent
+                      );
+                      color: var(--text);
+                    "
+                  />
+                </div>
+                <div>
+                  <label for="email" class="subtitle">Email</label>
+                  <input
+                    id="email"
+                    type="email"
+                    required
+                    placeholder="you@example.com"
+                    style="
+                      margin-top: 6px;
+                      width: 100%;
+                      padding: 0.8rem 1rem;
+                      border-radius: 12px;
+                      border: 1px solid
+                        color-mix(in oklab, var(--text) 12%, transparent);
+                      background: color-mix(
+                        in oklab,
+                        var(--panel) 90%,
+                        transparent
+                      );
+                      color: var(--text);
+                    "
+                  />
+                </div>
+              </div>
+              <div style="margin-top: 12px">
+                <label for="message" class="subtitle">Message</label>
+                <textarea
+                  id="message"
+                  rows="5"
+                  required
+                  placeholder="Tell me about your project"
+                  style="
+                    margin-top: 6px;
+                    width: 100%;
+                    padding: 0.8rem 1rem;
+                    border-radius: 12px;
+                    border: 1px solid
+                      color-mix(in oklab, var(--text) 12%, transparent);
+                    background: color-mix(
+                      in oklab,
+                      var(--panel) 90%,
+                      transparent
+                    );
+                    color: var(--text);
+                  "
+                ></textarea>
+              </div>
+              <div
+                style="
+                  margin-top: 12px;
+                  display: flex;
+                  gap: 10px;
+                  align-items: center;
+                  justify-content: space-between;
+                "
+              >
+                <div class="chip">Avg response: ~1 business day</div>
+                <button class="btn primary" type="submit">Send Message</button>
+              </div>
+            </form>
+
+            <aside class="card panel reveal" data-anim>
+              <h3>Quick links</h3>
+              <ul style="margin-top: 10px; line-height: 1.9">
+                <li>
+                  🟢  
+                  <a href="Whatsapp"
+                    >01201225850</a
+                  >
+                </li>
+                <li>
+                  📧
+                  <a href="ahmedalaaseleem989@gmail.com"
+                    >ahmedalaaseleem989@gmail.com</a
+                  >
+                </li>
+                <li>🐙 <a href="https://github.com/ahmed12g4">github.com/ahmedseleem</a></li>
+                <li>💼 <a href="https://www.linkedin.com/in/ahmed-seleem-6337b4333/">linkedin.com/in/ahmedseleem</a></li>
+                <li>📍 Cairo, Egypt · Remote friendly</li>
+              </ul>
+              <div
+                class="grid"
+                style="margin-top: 12px; grid-template-columns: repeat(3, 1fr)"
+              >
+                <span class="chip">Available</span>
+                <span class="chip">UTC+2 / UTC+3</span>
+                <span class="chip">English · Arabic</span>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container">
+      <div
+        class="grid"
+        style="
+          grid-template-columns: 1fr auto;
+          align-items: center;
+          gap: var(--grid-gap);
+        "
+      >
+        <p>
+          © <span id="year"></span> Ahmed Seleem. Built with semantic HTML,
+          modern CSS, and vanilla JS.
+        </p>
+        <div class="socials">
+          <a class="btn" href="https://github.com/ahmed12g4" aria-label="GitHub">GH</a>
+          <a class="btn" href="#" aria-label="Twitter">X</a>
+          <a class="btn" href="https://www.linkedin.com/in/ahmed-seleem-6337b4333/" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="#home"
+      class="btn back-to-top"
+      id="backToTop"
+      aria-label="Back to top"
+      >↑</a
+    >
+
+    <script src="script.js"></script>
+  </body>
+</html>
